@@ -28,7 +28,7 @@
     
     function reco(){
         //var Points = resamplePoints(points);    
-        
+        console.log(points);
         var smiles = p2s(points);
         searchBySmiles(smiles);
         return 0;
@@ -120,7 +120,7 @@
                 draw();
 
                 var date = new Date();   
-                var p = new point(prevX,prevY,date.time);
+                var p = new point(prevX,prevY,date.getTime());
                 points.push(p);
             }
         }
