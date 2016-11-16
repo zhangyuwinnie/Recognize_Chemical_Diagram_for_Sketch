@@ -37,6 +37,41 @@
         var substrokes = find_substroke(strokes);
         console.log("# of substrokes: "+ substroke.length);
 
+        var arrK = [];
+        var endPoints = [];
+        //get all end points of substrokes 
+        for (var i=0; i < substroke.length;i++){
+            var p = substroke[i];
+            if(distance(p,0,p.length-1)!=0){
+                endPoints.push(p[0]);
+                endPoints.push(p[p.length-1]);
+                arrK.push(i);
+            }
+        }
+        console.log("# of endpoints: "+ endPoints.length);
+
+        //Group the end points and find nodes
+        var nodes = [];
+        nodes = findNode(endPoints);
+
+
+        //rebuild endPoints array
+        var endPoints = [];
+        //get all end points of substrokes 
+        for (var i=0; i < substroke.length;i++){
+            var p = substroke[i];
+            if(distance(p,0,p.length-1)!=0){
+                endPoints.push(p[0]);
+                endPoints.push(p[p.length-1]);
+            }
+        }
+        console.log("# of rebuild endpoints: "+ endPoints.length);
+
+        //build adjacent matrix
+        var matrix = adjMatrix(nodes,endPoints);
+        console.log("matrix: ");
+        console.log(matrix);
+
         var smiles = p2s(points);
         searchBySmiles(smiles);
         return 0;
