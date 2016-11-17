@@ -17,11 +17,11 @@
 				}
 				else{
 					// if gap found, push previous strokepoints as a stroke to stroke[]
-					stroke.push(strokepoints);	
+					stroke.push(strokepoints);
 					console.log("stroke size iterate: "+ stroke.length);
-									
+
 					console.log("change");
-					
+
 					// empty strokepoints
 					strokepoints = [];
 					// add the first point of the next stroke to a new strokepoints set
@@ -29,46 +29,46 @@
 				}
 			}
 			previous = points[i].time;
-			
+
 		}
 		// add the last stroke
 		stroke.push(strokepoints);
-		console.log("stroke size iterate: "+ stroke.length);			
+		console.log("stroke size iterate: "+ stroke.length);
 		//console.log(stroke);
 		return stroke;
 	}
 
 	function find_substroke(stroke){
 		console.log("enter substroke function");
-		
+
 
 		// iterate each strokes, find corners, get substrokes
 		substroke = [];
 		for (var i = 0; i < stroke.length; i++){
 			var points = stroke[i];
-			// get spacing			
+			// get spacing
 			var s = spacing(points);
 			// get resamples
 			var transfer = resample(points,s);
 			var resamples = transfer[0];
 			// get original points for corners
 			var originals = transfer[1];
-						
+
 			var corners = getCorners(resamples);
 
-			
+
 			for (var a = 0; a < corners.length-1;a++){
 				var points = stroke[i];
 				var newPoints = [];
 				//console.log(originals[corners[i]]);
 				for (var j = originals[corners[a]]; j <= originals[corners[a+1]]; j++){
-								
-					newPoints.push(points[j]);	
-							
+
+					newPoints.push(points[j]);
+
 					//for (var j = corners[a]; j <= corners[a+1]; j++){
-								
-					//newPoints.push(resamples[j]);		
-											
+
+					//newPoints.push(resamples[j]);
+
 				}
 				substroke.push(newPoints);
 			}
@@ -77,7 +77,7 @@
 		return substroke;
 
 	}
-	
+
 	function findNode(endPoints){
 		//loop through all end points
 		var nodes=[];
@@ -85,7 +85,7 @@
  			var node0 = [endPoints[j]];
       		var p1 = endPoints[j];
       		// console.log("**********j = "+j);
-      		//do not compare with self 
+      		//do not compare with self
       		for (var k = 0; k < endPoints.length; k++){
       			// console.log("**********k = "+k);
        			// if(k!=j){
@@ -98,7 +98,7 @@
         				k--;
        				}
        			}
-       						
+
       		}
       		//need start and end point to be node
       		if (node0.length >= 1){
@@ -119,7 +119,7 @@
 		var dis = Math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
 		// console.log("dis = "+dis);
 		var rst = false;
-		if (dis <= 21){
+		if (dis <= 50){
 			console.log("dis<=21: (x1-x2) = "+(x1-x2)+" (y1-y2) "+(y1-y2));
 			rst = true;
 		}
@@ -151,7 +151,7 @@
 		}
 
 		//print nodeM
-		console.log("nodeM: = ");
+		console.log("nodeM: = "+nodeM.length);
 		for(var i=0;i<nodeM.length;i++){
 			console.log(nodeM[i]+";");
 		}
