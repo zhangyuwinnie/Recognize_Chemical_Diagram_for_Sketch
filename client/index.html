@@ -35,14 +35,21 @@
         console.log("# of strokes: "+strokes.length);
         // test for substroke function
         var substrokes = find_substroke(strokes);
-        console.log("# of substrokes: "+ substroke.length);
+        console.log("# of substrokes: "+ substrokes.length);
 
         var arrK = [];
         var endPoints = [];
         //get all end points of substrokes
-        for (var i=0; i < substroke.length;i++){
-            var p = substroke[i];
-            if(distance(p,0,p.length-1)!=0){
+        //find minimum substroke dis
+        var minDis = Infinity;
+        for (var i=0; i < substrokes.length;i++){
+            var p = substrokes[i];
+            var dis = distance(p,0,p.length-1);
+            if(dis!=0){
+                if(dis <= minDis){
+                    minDis = dis;
+                    console.log("current minDis: "+ minDis);
+                }
                 endPoints.push(p[0]);
                 endPoints.push(p[p.length-1]);
                 arrK.push(i);
@@ -52,14 +59,14 @@
 
         //Group the end points and find nodes
         var nodes = [];
-        nodes = findNode(endPoints);
+        nodes = findNode(endPoints,minDis * 0.3 );
 
 
         //rebuild endPoints array
         var endPoints = [];
         //get all end points of substrokes
-        for (var i=0; i < substroke.length;i++){
-            var p = substroke[i];
+        for (var i=0; i < substrokes.length;i++){
+            var p = substrokes[i];
             if(distance(p,0,p.length-1)!=0){
                 endPoints.push(p[0]);
                 endPoints.push(p[p.length-1]);
@@ -70,10 +77,9 @@
         //build adjacent matrix
         var matrix = adjMatrix(nodes,endPoints);
 
-
-
         var smiles = p2s(matrix);
-        //searchBySmiles(smiles);
+
+        searchBySmiles(smiles);
         return 0;
     }
 

@@ -24,7 +24,7 @@
     var min = Infinity;
     var s = 0;
     for (var i= 0; i < len; i++){
-        sum = 0;
+        var sum = 0;
         for (var j = 0; j<len; j++){
             sum+= matrix[i][j];
 
@@ -41,12 +41,86 @@
     var traverse = [];
     var cycle = [];
     DFS(nodes,nodes[s],d,traverse,cycle);
-    console.log("traverse"+traverse);
-    console.log("cycle:"+cycle);
+    console.log("traverse: ",traverse);
+    console.log("cycle: ",cycle);
+
+    var smiles = getSMILES(traverse,cycle,matrix);
+    console.log('SMILES: ',smiles);
+    return smiles;
+ }
+
+function getSMILES(traverse,cycle,matrix){
+ 	var i= traverse.length-1;
+ 	while(i>=0){
+ 		var c = traverse[i];
+ 		var j = i-1;
+ 		while(j>=0){
+ 			if(traverse[j]==traverse[i]){ 
+ 				//console.log(j,i);
+ 				var sub = traverse.splice(i+1);
+ 				//console.log(sub);
+ 				traverse.pop();
+ 				if(sub.length!=0){
+ 					traverse.splice(j+1,0,'(');
+ 					for (var k=0;k<sub.length;k++){
+ 						
+ 						traverse.splice(j+k+2,0,sub[k]);
+ 						
+ 					}
+ 					traverse.splice(j+k+2,0,')');
+ 				}
+ 				
+ 			}
+ 			j--;
+ 		}
+ 		i --;
+ 	}
+ 	//console.log('sub chain tra')
+    //console.log(traverse);
+ 	for (var i = 0; i < traverse.length-1;i++){
+ 		var c1 = traverse[i];
+ 		var c2 = traverse[i+1];
+ 		if(typeof c1 == 'number' && typeof c2 =='number'){
+ 			if(matrix[c1][c2]==2){
+ 				traverse.splice(i+1,0,'=');
+ 			}
+ 			if(matrix[c1][c2]==3){
+ 				traverse.splice(i+1,0,'%23');
+ 			}
+ 		}
+
+ 	}
+
+
+ 	for(var i=0;i<cycle.length;i+=2){
+ 		var c1 = cycle[i][0];
+ 		var c2 = cycle[i][1];
+ 		var p1 = traverse.indexOf(c1);
+ 		var p2 = traverse.indexOf(c2);
+ 		if(p1!=-1 && p2!=-1){
+ 			traverse.splice(p1+1,0,i.toString());
+ 			p2 = traverse.indexOf(c2);
+ 			traverse.splice(p2+1,0,i.toString());
+ 		}
+
+ 	}
 
 
 
-     return "CCCC(C(C)C)CC";
+ 	
+ 	
+    var smiles = '';
+    for(var i =0; i < traverse.length;i++){
+    	if(typeof traverse[i] == 'number'  ){
+    		smiles += 'C';
+    	}
+    	else{
+    		smiles += traverse[i];
+    	}
+    }
+        
+    return smiles;        
+
  }
 
 
@@ -88,8 +162,8 @@
                 console.log(u.data+" "+u.neighbour[i]+"form a ring");
                 //var ring = u.distance-nodes[i].distance;
 
-                var add = [u.data,u.neighbour[i]].sort();
-                cycle.push(add);
+                var add = [u.data,u.neighbour[i]];
+                add2cycle(cycle,add);
 
 
             }
@@ -99,8 +173,8 @@
                 console.log(u.data+" "+u.neighbour[i]+"form a ring");
                 //var ring = u.distance-nodes[i].distance;
 
-                var add = [u.data,u.neighbour[i]].sort();
-                cycle.push(add);
+                var add = [u.data,u.neighbour[i]];
+                add2cycle(cycle,add);
             }
 
 
@@ -109,6 +183,28 @@
     }
 
 
+
+ }
+
+ function add2cycle(cycle,add){
+ 	if(cycle.length==0){
+ 		cycle.push(add);
+ 	}
+ 	else{
+ 		for (var i =0; i<cycle.length-1;i++){
+ 			var a = cycle[i];
+ 			var b = cycle[i+1];
+ 			if((a==add[0] && b==add[1]) || (a==add[1] && b==add[0])) {
+ 				var z = 0;
+ 			}
+ 			else{
+ 				cycle.push(add);
+ 			}
+
+ 		}
+
+
+ 	}
 
  }
 

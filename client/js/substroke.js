@@ -78,7 +78,7 @@
 
 	}
 
-	function findNode(endPoints){
+	function findNode(endPoints,minDis){
 		//loop through all end points
 		var nodes=[];
      	for (var j = 0; j < endPoints.length; j++){
@@ -91,8 +91,8 @@
        			// if(k!=j){
        			if(k!=j){
        				var p2 = endPoints[k];
-       				if (close(p1,p2)){
-       					// console.log("----------k = "+k);
+       				if (close(p1,p2,minDis)){
+       					console.log("---------node0 length = "+node0.length);
         				node0.push(p2);
         				endPoints.splice(k,1);
         				k--;
@@ -111,15 +111,15 @@
 	}
 
 	//function close has threshold to be changed: dis
-	function close(p1,p2){
+	function close(p1,p2,min){
 		var x1 = p1.x;
 		var y1 = p1.y;
 		var x2 = p2.x;
 		var y2 = p2.y;
 		var dis = Math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
-		// console.log("dis = "+dis);
+		console.log("minDis = "+min);
 		var rst = false;
-		if (dis <= 50){
+		if (dis <= min){
 			console.log("dis<=21: (x1-x2) = "+(x1-x2)+" (y1-y2) "+(y1-y2));
 			rst = true;
 		}
