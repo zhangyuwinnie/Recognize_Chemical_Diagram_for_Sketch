@@ -44,37 +44,71 @@
 
 		// iterate each strokes, find corners, get substrokes
 		substroke = [];
+
+        oxygen = [];
+
 		for (var i = 0; i < stroke.length; i++){
 			var points = stroke[i];
-			// get spacing
-			var s = spacing(points);
-			// get resamples
-			var transfer = resample(points,s);
-			var resamples = transfer[0];
-			// get original points for corners
-			var originals = transfer[1];
 
-			var corners = getCorners(resamples);
+            // parameter for judging whether it's oxygen
+            var startend = distance(points, 0, points.length-1);
+            var diagonal = spacing(points)*40;
+
+            if (startend<20 && diagonal<100){
+
+                // an oxygen, store its center point in array
+                var maxX = 0, maxY = 0, minX = Infinity, minY = Infinity;
+                for (var j = 0; j< points.length; j++){
+
+                    if ( points[j].x < minX) minX = points[j].x;
+
+                    if ( points[j].y < minY) minY = points[j].y;
+
+                    if ( points[j].x > maxX) maxX = points[j].x;
+
+                    if ( points[j].y > maxY) maxY = points[j].y;
+                }
+                var x = (maxX+minX)/2;
+                var y = (maxY+minY)/2;
+                oxygen.push([x,y]);
+                console.log("oxygen: "+ oxygen);
+
+            }
+            else{
+
+                // not oxygen, get its substroke
+                // get spacing
+                var s = spacing(points);
+                // get resamples
+                var transfer = resample(points,s);
+                var resamples = transfer[0];
+                // get original points for corners
+                var originals = transfer[1];
+
+                var corners = getCorners(resamples);
 
 
-			for (var a = 0; a < corners.length-1;a++){
-				var points = stroke[i];
-				var newPoints = [];
-				//console.log(originals[corners[i]]);
-				for (var j = originals[corners[a]]; j <= originals[corners[a+1]]; j++){
+                for (var a = 0; a < corners.length-1;a++){
+                    var points = stroke[i];
+                    var newPoints = [];
+                    //console.log(originals[corners[i]]);
+                    for (var j = originals[corners[a]]; j <= originals[corners[a+1]]; j++){
 
-					newPoints.push(points[j]);
+                        newPoints.push(points[j]);
 
-					//for (var j = corners[a]; j <= corners[a+1]; j++){
+                        //for (var j = corners[a]; j <= corners[a+1]; j++){
 
-					//newPoints.push(resamples[j]);
+                        //newPoints.push(resamples[j]);
 
-				}
-				substroke.push(newPoints);
-			}
+                    }
+                    substroke.push(newPoints);
+                }
+
+            }
+
 
 		}
-		return substroke;
+		return [substroke,oxygen];
 
 	}
 

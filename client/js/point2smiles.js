@@ -55,7 +55,7 @@ function getSMILES(traverse,cycle,matrix){
  		var c = traverse[i];
  		var j = i-1;
  		while(j>=0){
- 			if(traverse[j]==traverse[i]){ 
+ 			if(traverse[j]==traverse[i]){
  				//console.log(j,i);
  				var sub = traverse.splice(i+1);
  				//console.log(sub);
@@ -63,13 +63,13 @@ function getSMILES(traverse,cycle,matrix){
  				if(sub.length!=0){
  					traverse.splice(j+1,0,'(');
  					for (var k=0;k<sub.length;k++){
- 						
+
  						traverse.splice(j+k+2,0,sub[k]);
- 						
+
  					}
  					traverse.splice(j+k+2,0,')');
  				}
- 				
+
  			}
  			j--;
  		}
@@ -107,8 +107,8 @@ function getSMILES(traverse,cycle,matrix){
 
 
 
- 	
- 	
+
+
     var smiles = '';
     for(var i =0; i < traverse.length;i++){
     	if(typeof traverse[i] == 'number'  ){
@@ -118,8 +118,8 @@ function getSMILES(traverse,cycle,matrix){
     		smiles += traverse[i];
     	}
     }
-        
-    return smiles;        
+
+    return smiles;
 
  }
 

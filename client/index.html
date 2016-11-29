@@ -34,8 +34,11 @@
 		var strokes = stroke(points);
         console.log("# of strokes: "+strokes.length);
         // test for substroke function
-        var substrokes = find_substroke(strokes);
+        var substrokes = find_substroke(strokes)[0];
         console.log("# of substrokes: "+ substrokes.length);
+
+        var oxygen = find_substroke(strokes)[1];
+        console.log("oxygenlength: "+ oxygen.length);
 
         var arrK = [];
         var endPoints = [];
