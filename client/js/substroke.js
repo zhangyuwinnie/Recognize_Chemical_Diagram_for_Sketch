@@ -43,9 +43,9 @@
 
 
 		// iterate each strokes, find corners, get substrokes
-		substroke = [];
+		var substroke = [];
 
-        oxygen = [];
+        var oxygen = [];
 
 		for (var i = 0; i < stroke.length; i++){
 			var points = stroke[i];
@@ -70,8 +70,8 @@
                 }
                 var x = (maxX+minX)/2;
                 var y = (maxY+minY)/2;
-                oxygen.push([x,y]);
-                console.log("oxygen: "+ oxygen);
+                var p = new point(x,y,0);
+                oxygen.push(p);
 
             }
             else{
@@ -192,6 +192,27 @@
 		return nodeM;
 	}
 
+	//given nodes point list and oxygen point list
+	//figure out which node is oxygen
+	//return them in the oxygenList
+	function oxList(comb,min){
+		var nodes = comb[0];
+		var oxygen = comb[1];
+		var oList = [];
+		for(var i=0;i<nodes.length;i++){
+			for(var j=0;j<oxygen.length;j++){
+				if(close(nodes[i][0],oxygen[j],min)){
+					oList.push(i);
+				}
+			}
+		}
+		console.log("oxygenList: = "+oList.length);
+		for(var i=0;i<oList.length;i++){
+			console.log(oList[i]+";");
+		}
+		return oList;
+	}
+
 	function contains(value,array){
     	var rst = false;
     	for(var i=0;i<array.length;i++){
@@ -206,4 +227,12 @@
     	}
 
     	return rst;
+	}
+	function getOxygenIndex(oxygenPoints,nodes){
+		var oxygen = [];
+		for (var i=0;i < oxygenPoints;i++){
+			
+		}
+		return oxygen;
+		
 	}

@@ -1,0 +1,97 @@
+
+1. Introduction and Motivation
+
+＊＊＊＊＊＊＊paper reference
+2. Wipke. W. Todd "Evolution of Molecular Graphics", ACS Symposium Series 341, ad. Wendy A. Wan, American Chanid Society, Washington, DC. 1987.
+Graphics have played an important role in the development of chemistry and computer assistance in chemical research has been intimately intertwined with computer graphics. This paper reviews the impact of computer graphics in chemist-computer communication and representation of chemical information. Thus computer graphics impacts the chemist in two major ways. First it simplifies access to computer stores of chemical information and to chemical computations for discovering new information. Second, it facilitates transmission of chemical information via publication quality graphic-containing documents for dissemination in oral presentations, in hard copy publications, or in electronic mail; and via computer networks. Graphic images which are also computable give new power to molecular graphics and the documents that contain them.
+
+Nowadays, people use sketch reco system [1-10].
+
+It is good!
+
+Chem education is important. 
+
+Some people use sketch reco for chemical diagram reco.
+
+However, it cannot reveal the chemical identity for the chemical
+
+it is also not simple.
+
+Thus, we .. a web online reco.
+
+Provide detailed information of this molecule
+
+It consisits of ....
+
+Our system is gooooood.
+
+
+
+2. Previous work
+
+Ouyang .... some people
+
+
+they did a chem reco system...
+
+
+it works....
+
+
+
+3.Our system:
+
+A. framework
+
+@ recognition:
+
+From points to substrokes
+1.	separate multistrokes according to time gap (>500)
+2.	recognition stroke of oxygen:
+(start point is close to end point)
+(diagonal of bounding box<100)
+3.	for each stroke, get substrokes with shortstaw corner detection algorithm
+
+
+@ matrix representation
+
+@ SMILES generation:
+
+From graph (adjacent matrix) to smiles:
+Algorithm: 
+1.	Get array of neighboring nodes for each node
+2.	Initialize each node to be “white”
+3.	Pick a source u with least neighbours
+4.	Call DFS to get traverse records formula information and cycle information
+5.	Get oxygen information and double bond tri-bond information from adjacent matrix
+6.	Replace traverse records with “C” or “O” and add corresponding cycle subscript and bond information 
+
+
+@ API query to chem database
+
+
+
+B.how to use. Use Interface
+
+2 button .  just draw and click recognize
+
+again? just click clear sketch.
+
+Easy to use
+
+
+4. Evaluations
+
+we performed experiments on ...
+
+They all works!
+
+We are genius.
+
+
+5. Conclusion
+
+
+
+
+

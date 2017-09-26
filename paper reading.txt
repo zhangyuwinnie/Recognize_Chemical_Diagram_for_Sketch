@@ -1,0 +1,45 @@
+paper reading list
+1.Ouyang, Tom Y., and Randall Davis. "ChemInk: a natural real-time recognition system for chemical drawings." Proceedings of the 16th international conference on Intelligent user interfaces. ACM, 2011.
+2.Ouyang, Tom Y., and Randall Davis. "Recognition of hand drawn chemical diagrams." AAAI. Vol. 7. 2007.
+3.Weininger, David, Arthur Weininger, and Joseph L. Weininger. "SMILES. 2. Algorithm for generation of unique SMILES notation." Journal of Chemical Information and Computer Sciences 29.2 (1989): 97-101.
+4.Sadawi, Noureddin M., Alan P. Sexton, and Volker Sorge. "Chemical structure recognition: a rule-based approach." IS&T/SPIE Electronic Imaging. International Society for Optics and Photonics, 2012.
+5.McNaught, Alan. "The iupac international chemical identifier." Chemistry international (2006): 12-14.
+6.McDaniel, J. and Balmuth, J., “Kekule ́: Ocr-optical chemical (structure) recognition,” J Chem Inform Comput Sci 32(4), 373–378 (1992).
+7.Filippov, I. V. and Nicklaus, M. C., “Optical structure recognition software to recover chemical information: OSRA, an open source solution,” J. Chem. Inf. Model. 49(3), 740–743 (2009).
+8.Zhang, Yang, Guangshun Shi, and Kai Wang. "A SVM-HMM based online classifier for handwritten chemical symbols." Pattern Recognition (ICPR), 2010 20th International Conference on. IEEE, 2010.
+9.Wang, Xin, Guangshun Shi, and Jufeng Yang. "The understanding and structure analyzing for online handwritten chemical formulas." 2009 10th International Conference on Document Analysis and Recognition. IEEE, 2009.
+10.Tang, Peng, Siu Cheung Hui, and Chi-Wing Fu. "Online chemical symbol recognition for handwritten chemical expression recognition." Computer and Information Science (ICIS), 2013 IEEE/ACIS 12th International Conference on. IEEE, 2013.
+For more papers, search the reference chain of those papers.
+
+1. Leslie M. Gennari, Levent Burak Kara, and Thomas F. Stahovich "Combining Geometry and Domain Knowledge to Interpret Hand-Drawn Diagrams" Computers and Graphics 29(4):547-562,2005.
+2. Wipke. W. Todd "Evolution of Molecular Graphics", ACS Symposium Series 341, ad. Wendy A. Wan, American Chanid Society, Washington, DC. 1987.
+3. Kurtoglu, T., and Stahovich, T. 2002. Interpreting schematic sketches using physical reasoning. In AAAI Spring Symposium on Sketch Understanding 78–85.
+4. Contreras, M.L., et al,"Computational perception and recognition of digitized molecular structures", J. Chem. Info. Comp. Sci., Wash., DC, Amer. Chem. Soc., 1990, v30 n3 302-307.
+5. McDaniel, 1. R., Balmuth. J. R.. "Kekule: OCR - Optical Chemical (Structure) Recognition", J. Chem. Info. Canp. Sci.. Amer. Chem. Soc.. 1992, Wash., DC, v32 n4 pp 373-8. 
+6. Ibison. P., et al, "Chemical literature data extraction. The CLIDE Project', School of chem.. Univ. Leeds, UK (repolt). 1992. 
+7. Okazaki, S. and Tsuji. Y.. "An adaptive recognition method for line drawings using construction rules," NEC R&D. Jan 1989. 
+8. Boyer, S.K., Casey. R.G., et al. "Apparatus and method for optical recognition of chemical graphics". U.S. Patent no. 5,157,736, Oct. 20, 1992. 
+9. Bamard, John M. "Draft Specification for Revised Venion of the Standard Molecular Data (SMD) Format", J. Chem. Info. & Comp. Sci., Amer. Chem. Soc.. Wash., DC, 3081-96, 1990. 
+10. N. Itoh and H. Takahashi. "A handwritten numeral verification method using distribution maps of structural features", Roc. SPIE Image Communications and Workstations, ~1258. 1990. 
+
+1. R. Casey, S. Boyer, P. Healey, A. Miller, B. oudot, and K.Zilles. "Optical Recognition of Chemical Graphics", pages 627-631, 1993.
+2. Contreras, M.L., et al, "Computational perception and recognition of digitized structures", J. Chem. Info. Comp. Sci., Wash., DC, Amer. Chem. Soc., 1990, v30 n3 302-307.
+3. McDaniel, J. R., Balmuth, J. R., "Kekeule: OCR - Optical Chemical (Strucuture) Recogniton", J. Chem. Info. Comp. Sci., Amer. Chem. Soc., 1992, Wash., DC, v32 n4 pp 373-8.
+4. Ibison, P., et al, "Chemical literature data extraction. The CLiDE Project", School of chem., Univ. Leeds, UK (report), 1992.
+5. Boyer, S.K., Cassey, R.G., et al, "Apparatus and method for optical recogniton of chemical graphics", U.S. Patent no. 5157736, Oct. 20, 1992.
+6. Wipke, W. Todd. "Evolutions of Molecular Graphics" , ACS Sympsium Series 341, ed. Wendy A. Warr, American Chemical Society, Washington, DC, 1987.
+7. Aniko Simon, A. Perter Johnson, "Recent Advances in the CLiDE project: Logical Layout analysis of chemical documents", J. Chem. Infor. Comput. Sci., 1993, 37, pp 109-116.
+8. Aniko T. Valko, A. Peter Johnson, "The latest generation of CLiDE, a tool for Optical Chemical Structure", J. Chem. Infor. Model. 2009, 49(4), pp 780-787.
+9. Maria-Elena Algorri, Marc Zimmermann, et al, "Reconstructure of Chemical Molecules from Images", Engineering in Medicine and Biology Society 2007. EMBS 2007. 29th Annual International COnference of the IEEE, pp. 4609-4612, 2007, ISSN 1557-170X.
+10. Jufeng Yang, Kai Wang, Guangshun shi, "Structure-based recognition of handwritting chemical operations", Intelligent Control and Automation (WCICA) 2010 8th World Congress on, pp. 6371-6374, 2010.
+
+1.Alvarado, C., Oltmans, M., & Davis, R. (2002, March). A framework for multi-domain sketch recognition. In Proceedings of AAAI Spring Symposium on Sketch Understanding (pp. 1-8).
+2.Calhoun, C., Stahovich, T. F., Kurtoglu, T., & Kara, L. B. (2002, March). Recognizing multi-stroke symbols. In AAAI Spring Symposium on Sketch Understanding (pp. 15-23).
+3.Gennari, L., Kara, L. B., Stahovich, T. F., & Shimada, K. (2005). Combining geometry and domain knowledge to interpret hand-drawn diagrams. Computers & Graphics, 29(4), 547-562.
+4.Sezgin, T. M., & Davis, R. (2005, January). HMM-based efficient sketch recognition. In Proceedings of the 10th international conference on Intelligent user interfaces (pp. 281-283). ACM.
+5.Shilman, M., Pasula, H., Russell, S., & Newton, R. (2002, March). Statistical visual language models for ink parsing. In AAAI spring symposium on sketch understanding (pp. 126-132).
+6.Shilman, M., & Viola, P. (2004, August). Spatial recognition and grouping of text and graphics. In Proceedings of the First Eurographics conference on Sketch-Based Interfaces and Modeling (pp. 91-95). Eurographics Association.
+7.Tenneson, D., & Becker, S. (2005, July). Chempad: Generating 3d molecules from 2d sketches. In ACM SIGGRAPH 2005 Posters (p. 87). ACM.
+8.Vapnik, V. (2013). The nature of statistical learning theory. Springer Science & Business Media.
+9.Alvarado, C., & Davis, R. (2004, October). SketchREAD: a multi-domain sketch recognition engine. In Proceedings of the 17th annual ACM symposium on User interface software and technology (pp. 23-32). ACM.
+10.Hammond, T., & Davis, R. (2006, July). LADDER: A language to describe drawing, display, and editing in sketch recognition. In ACM SIGGRAPH 2006 Courses (p. 27). ACM.

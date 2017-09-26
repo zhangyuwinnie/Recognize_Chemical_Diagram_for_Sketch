@@ -2,7 +2,7 @@
  //这个函数把所有的输入点转化为smiles 分子字符串表达式
  //在该函数前，应该有preprocess过程
 
- function p2s(matrix){
+ function pointToSmiles(matrix,oxygen){
     var len = matrix.length;
     // construct vertices and initialization
     var nodes=[];
@@ -44,18 +44,32 @@
     console.log("traverse: ",traverse);
     console.log("cycle: ",cycle);
 
-    var smiles = getSMILES(traverse,cycle,matrix);
+    var smiles = getSMILES(traverse,cycle,matrix,oxygen);
     console.log('SMILES: ',smiles);
     return smiles;
  }
 
-function getSMILES(traverse,cycle,matrix){
+
+function isOxygen(p,oxygen){
+    if (oxygen != null){
+        for (var i=0; i<oxygen.length;i++){
+            if(p == oxygen[i]){
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+
+
+
+function getSMILES(traverse,cycle,matrix,oxygen){
  	var i= traverse.length-1;
  	while(i>=0){
  		var c = traverse[i];
  		var j = i-1;
  		while(j>=0){
- 			if(traverse[j]==traverse[i]){
+ 			if(traverse[j]==traverse[i]){ 
  				//console.log(j,i);
  				var sub = traverse.splice(i+1);
  				//console.log(sub);
@@ -63,13 +77,13 @@ function getSMILES(traverse,cycle,matrix){
  				if(sub.length!=0){
  					traverse.splice(j+1,0,'(');
  					for (var k=0;k<sub.length;k++){
-
+ 						
  						traverse.splice(j+k+2,0,sub[k]);
-
+ 						
  					}
  					traverse.splice(j+k+2,0,')');
  				}
-
+ 				
  			}
  			j--;
  		}
@@ -104,22 +118,22 @@ function getSMILES(traverse,cycle,matrix){
  		}
 
  	}
-
-
-
-
-
     var smiles = '';
     for(var i =0; i < traverse.length;i++){
     	if(typeof traverse[i] == 'number'  ){
-    		smiles += 'C';
+    	    if(isOxygen(traverse[i],oxygen)){
+    	        smiles += 'O';
+    	    }
+    	    else {
+    		    smiles += 'C';
+    	    }
     	}
     	else{
     		smiles += traverse[i];
     	}
     }
-
-    return smiles;
+        
+    return smiles;        
 
  }
 
@@ -129,7 +143,7 @@ function getSMILES(traverse,cycle,matrix){
 
     u.color = "grey";
 
-    console.log("u: "+u.data);
+    //console.log("u: "+u.data);
     d++;
     u.distance = d;
     //console.log("u.distance:"+u.distance);
@@ -138,7 +152,7 @@ function getSMILES(traverse,cycle,matrix){
 
     for (var i =0; i<u.neighbour.length;i++){
 
-        console.log("u+neighbour:"+u.data);
+        //console.log("u+neighbour:"+u.data);
 
         // get an array of vertices whose child is being checked
         if (u.data != traverse[traverse.length-1]){
@@ -213,7 +227,7 @@ function getSMILES(traverse,cycle,matrix){
     this.color = "white";
     this.parent = null;
     this.neighbour = [];
-    this.distance = 0;
+    this.distance = 0; 
 }
 
 
