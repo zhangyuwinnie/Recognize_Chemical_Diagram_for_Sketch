@@ -7,6 +7,7 @@
     <script src="js/cornerFinder.js"></script>
     <script src="js/point2smiles.js"></script>
 	<script src="js/substroke.js"></script>
+    <link href="style.css" rel="stylesheet">
     <script type="text/javascript">
     var canvas, ctx, flag = false;
     var prevX = 0,currX = 0,prevY = 0,currY = 0,dot_flag = false;
@@ -61,7 +62,7 @@
 
         //Group the end points and find nodes
         var nodes = [];
-        
+
         var min = minDis*0.3;
         nodes = findNode(endPoints,min );
 
@@ -117,7 +118,7 @@
             //     console.log(oxList[i][0].x+";");
             // }
         }
-        
+
         var smiles = pointToSmiles(matrix,oList);
 
         searchBySmiles(smiles);
@@ -219,9 +220,75 @@
     }
     </script>
     <body onload="init()">
-        <canvas id="can" width="800" height="600" style="position:absolute;top:10%;left:10%;border:2px solid;"></canvas>
-        <img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;">
-        <input type="button" value="recognize" id="btn" size="50" onclick="reco()" style="position:absolute;top:55%;left:80%;">
-        <input type="button" value="clear sketch" id="clr" size="50" onclick="erase()" style="position:absolute;top:60%;left:80%;">
+        <table border="0px" width="1300px">
+            <!-- 一条灰框 -->
+            <tr width = "100%" height = "30px" bgcolor="grey">
+                <td></td>
+            </tr>
+            <!-- 一条蓝色框，中间有字，Recognize Chemical Diagram for Sketch -->
+            <tr width = "100%" height = "80px" bgcolor="white">
+                <td>
+                    &nbsp&nbsp&nbsp
+                    <font  color="#104E8B" size="7" ><b>Recognize  Chemical  Diagram  for  Sketch</b></font>
+                </td>
+            </tr>
+
+            <!-- 一条蓝色，SMILE Formula -->
+            <tr width = "100%" height = "50px" bgcolor="#104E8B">
+                <td>
+                    &nbsp&nbsp&nbsp
+                    <font  color="white" size="4" >Novel Algorithm Using DFS & SMILE Formula</font>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr />
+                </td>
+            </tr>
+
+            <!-- 文字，instruction -->
+                <td height="40">
+                    &nbsp&nbsp&nbsp
+                    <font size="5"><b>Instructions</b></font>
+
+                </td>
+            <tr>
+            </tr>
+            <!-- 文字，instruction -->
+                <td height="80">
+                    &nbsp&nbsp&nbsp
+                    <font>Draw a chemical diagram with mouse or touch pad on the following canvas. Then click the right button "recognize". It will tell you what specific compound you have drawn, together with its chemical and physical properties.</font>
+                    <br />
+                    <br/>
+                </td>
+            <tr>
+
+            </tr>
+
+            <!-- 嵌套一个一行3列表格，空白：画布：按钮=1：7：2 -->
+            <tr>
+                <td>
+                    <table border="0px" width="100%">
+                        <tr>
+                            <td width="10%"></td>
+                            <td width="70%">
+                                <canvas id="can" width="850px" height="600px" style="border:2px solid;"></canvas>
+                            </td>
+                            <td width="30%">
+                                <input type="button" value="recognize" id="btn" size="80" onclick="reco()"><br />
+                                <input type="button" value="clear sketch" id="clr" size="80" onclick="erase()">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+        </table>
+
+
+
+
+
+
     </body>
     </html>
